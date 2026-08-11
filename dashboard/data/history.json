@@ -6946,5 +6946,17 @@
     "rssi": -74.0,
     "snr": 11.0,
     "gateway_id": "anahuac1"
+  },
+  {
+    "device_id": "my-new-end-device",
+    "frame_counter": 482,
+    "timestamp": "2026-08-11T17:47:22.339-06:00",
+    "temperature": 24.85,
+    "humidity": 38.54,
+    "pressure": 762.1,
+    "interval_seconds": 895.987,
+    "rssi": -77.0,
+    "snr": 9.0,
+    "gateway_id": "anahuac1"
   }
 ]
