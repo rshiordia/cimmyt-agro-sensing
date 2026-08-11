@@ -8,7 +8,42 @@
 
 <body>
   <h1>CIMMYT Agro-Sensing Dashboard</h1>
-  <p>GitHub Pages deployment test.</p>
-  <p>If you can see this page, the dashboard is online.</p>
+  <p>GitHub Pages deployment test</p>
+
+  <h2>Latest sensor reading</h2>
+
+  <p>Device: <span id="device">Loading...</span></p>
+  <p>Temperature: <span id="temperature">--</span> °C</p>
+  <p>Humidity: <span id="humidity">--</span> %</p>
+  <p>Pressure: <span id="pressure">--</span> hPa</p>
+  <p>RSSI: <span id="rssi">--</span> dBm</p>
+  <p>SNR: <span id="snr">--</span> dB</p>
+  <p>Timestamp: <span id="timestamp">--</span></p>
+
+  <script>
+    async function loadSensorData() {
+      try {
+        const response = await fetch("./data/latest.json");
+        const data = await response.json();
+
+        document.getElementById("device").textContent = data.device_id;
+        document.getElementById("temperature").textContent = data.temperature;
+        document.getElementById("humidity").textContent = data.humidity;
+        document.getElementById("pressure").textContent = data.pressure;
+        document.getElementById("rssi").textContent = data.rssi;
+        document.getElementById("snr").textContent = data.snr;
+        document.getElementById("timestamp").textContent = data.timestamp;
+
+      } catch (error) {
+        document.getElementById("device").textContent =
+          "Error loading sensor data";
+
+        console.error(error);
+      }
+    }
+
+    loadSensorData();
+  </script>
+
 </body>
 </html>
